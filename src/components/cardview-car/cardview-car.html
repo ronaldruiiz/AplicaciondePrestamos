@@ -1,0 +1,31 @@
+<ion-card >
+  <ion-card-content>
+    <ion-card-title>
+      {{ car.title | lengthTitle }}
+    </ion-card-title>
+  </ion-card-content>
+  <ion-row no-padding>
+    <ion-col text-left>
+      <button ion-button clear small color="primary" icon-start>
+        <ion-icon name='logo-usd'></ion-icon>
+        {{car.price}}
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding>
+    <ion-col text-left>
+      <button ion-button clear small color="primary" icon-start>
+        <ion-icon name='map'></ion-icon>
+        {{car.address.city_name}}
+      </button>
+    </ion-col>
+  </ion-row>
+  <ion-row no-padding>
+    <ion-col text-left>
+      <button ion-button clear small color="primary" icon-start>
+        <ion-icon name='alert'></ion-icon>
+        {{car.condition | noState}}
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
