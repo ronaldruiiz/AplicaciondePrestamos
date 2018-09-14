@@ -16,12 +16,17 @@ export class CarsProvider {
   }
 
   public getSearchItem(criterion: string) {
-    let urlSearch = "search?q="+criterion+"&category=MEC1744"
+    let urlSearch = "/sites/MEC/search?q="+criterion+"&category=MEC1744"
     return this.getQuery(urlSearch).pipe(map((item: any)=>item.results));
   }
 
+  public getCar(id:string) {
+    let urlId = "/items/"+id;
+    return this.getQuery(urlId);
+  }
+
   public getQuery(query: string) {
-    let url: string = "https://api.mercadolibre.com/sites/MEC/";
+    let url: string = "https://api.mercadolibre.com";
     return this.http.get(url+query);
   }
 
