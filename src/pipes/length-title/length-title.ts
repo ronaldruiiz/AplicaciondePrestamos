@@ -12,7 +12,7 @@ export class LengthTitlePipe implements PipeTransform {
   /**
    * Takes a value and makes it lowercase.
    */
-  transform(title: string):string {
-    return title.substr(0,15);
+  transform(title: string = " ", quantity: number = 15):any {
+    return title.substr(0,quantity);
   }
 }

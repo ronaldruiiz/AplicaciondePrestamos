@@ -17,10 +17,18 @@ import {CarsProvider} from "../../providers/cars/cars";
 export class InformationCarPage {
 
   car = {}
+  id: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private cars: CarsProvider) {
-    this.cars.getCar(this.navParams.get("id")).subscribe((data:any)=>this.car=data);
-    console.log(this.car);
+    if (this.navParams.get("id")) {
+      this.id = this.navParams.get("id");
+      console.log(this.id);
+      this.cars.getCar(this.id.toString()).subscribe((data)=>{
+        this.car = data;
+        console.log(this.car);
+      });
+    }
+
   }
 
 
