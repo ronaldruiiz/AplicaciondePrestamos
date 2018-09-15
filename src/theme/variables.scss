@@ -53,9 +53,8 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
-
+$toolbar-md-active-color: #ffffff;
+$segment-button-md-border-color-activated: $toolbar-md-active-color;
 
 // App Windows Variables
 // --------------------------------------------------

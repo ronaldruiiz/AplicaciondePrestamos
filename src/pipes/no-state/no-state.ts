@@ -14,7 +14,7 @@ export class NoStatePipe implements PipeTransform {
    */
   transform(state: string):string {
 
-    if(state != "used") {
+    if(state == "not_specified") {
       return "no state";
     } else {
       return state;

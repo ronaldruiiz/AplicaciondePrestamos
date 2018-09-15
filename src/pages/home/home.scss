@@ -5,11 +5,23 @@ page-home {
     border-radius: 50%;
   }
 
-  #cardview {
-    border-radius: 10%;
-  }
 
   #content{
     background: color($colors,gris);
   }
+
+  ion-searchbar {
+    .searchbar-input-container {
+      .searchbar-input {
+        border-radius: 30px;
+      }
+    }
+  }
+
+
+
+.text {
+  color:#fff;
+}
+
 }

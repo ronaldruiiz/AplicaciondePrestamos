@@ -16,19 +16,25 @@ import {CarsProvider} from "../../providers/cars/cars";
 })
 export class InformationCarPage {
 
-  car = {}
+  car:any = {}
   id: number;
+  isdata: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private cars: CarsProvider) {
+    this.getObtenerCar();
+  }
+
+  public getObtenerCar() {
     if (this.navParams.get("id")) {
       this.id = this.navParams.get("id");
       console.log(this.id);
       this.cars.getCar(this.id.toString()).subscribe((data)=>{
         this.car = data;
         console.log(this.car);
+        console.log(this.car.pictures[0].url);
+        this.isdata = true;
       });
     }
-
   }
 
 

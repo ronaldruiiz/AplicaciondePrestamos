@@ -2,13 +2,33 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>{{car.title | lengthTitle : 10}}</ion-title>
+    <ion-title>{{car.title | lengthTitle : 14}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+  <div  *ngIf="isdata">
+    <ion-card>
+      <ion-slides>
+        <ion-slide *ngFor="let image of car.pictures">
+          <img id="imagen" [src]="image.url"/>
+        </ion-slide>
 
+      </ion-slides>
+      <ion-card-content>
+        <ion-card-title>
+          {{car.title}}
+        </ion-card-title>
+        <ion-list>
+          <ion-item>
+            {{car.attributes[0].value_name}}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
 
 </ion-content>
