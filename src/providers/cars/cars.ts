@@ -15,12 +15,18 @@ export class CarsProvider {
 
   }
 
-  public getSearchItem(criterion: string) {
-    let urlSearch = "sites/MEC/search?q="+criterion+"&category=MEC1744"
+  public getSearchItem(criterion: string,condition: string) {
+    let estate = "used";
+    let urlSearch;
+    if(condition == "nuevo") {
+      estate = "new";
+    }
+    urlSearch = "sites/MEC/search?q="+criterion+"&category=MEC1744"+"&condition="+estate;
+
     return this.getQuery(urlSearch).pipe(map((item: any)=>item.results));
   }
 
-  public getCar(id: any) {
+  public getCar(id?: any) {
     let urlId = "items/"+id;
     return this.getQuery(urlId);
   }

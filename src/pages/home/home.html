@@ -6,10 +6,10 @@
     <ion-searchbar margin-top id="searchbar" (ionInput)="getItems($event)" ></ion-searchbar>
     <div>
       <ion-segment [(ngModel)]="estado">
-        <ion-segment-button value="usado">
+        <ion-segment-button  (click)="initializeList()" value="usado">
           <div class="text">Usado</div>
         </ion-segment-button>
-        <ion-segment-button  value="nuevo">
+        <ion-segment-button (click)="initializeList()" value="nuevo">
           <div class="text">Nuevo</div>
         </ion-segment-button>
       </ion-segment>
@@ -19,34 +19,18 @@
 
 <ion-content id="content">
 
-  <ion-grid>
+  <ion-grid (swipe)="swipEvent($event)">
     <ion-row>
       <ion-col *ngFor="let carItem of listcars" col-6>
-        <div [ngSwitch]="estado">
-          <div *ngSwitchCase="'usado'">
-          <cardview-car  *ngIf="carItem.condition == 'used'" [car]="carItem" (click)="carSeleccionado(carItem)"></cardview-car>
-        </div>
-          <div *ngSwitchCase="'nuevo'">
-            <cardview-car  *ngIf="carItem.condition == 'new'" [car]="carItem" (click)="carSeleccionado(carItem)"></cardview-car>
-          </div>
-
-          <div *ngSwitchDefault>
-            <cardview-car  *ngIf="carItem.condition == 'used'" [car]="carItem" (click)="carSeleccionado(carItem)"></cardview-car>
-          </div>
-        </div>
+          <cardview-car  [car]="carItem" (click)="carSeleccionado(carItem)"></cardview-car>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-fab right bottom>
-    <button ion-fab color="primary"><ion-icon name="ios-cash-outline"></ion-icon></button>
-    <ion-fab-list side="left">
-      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
-      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
-    </ion-fab-list>
-  </ion-fab>
-
-
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <button ion-button color="light" clear block icon-end>Busqueda por Sueldo<ion-icon name="md-arrow-dropup-circle"></ion-icon></button>
+  </ion-toolbar>
+</ion-footer>
