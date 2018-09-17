@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CardviewCarComponent } from './cardview-car/cardview-car';
+
 @NgModule({
 	declarations: [CardviewCarComponent],
 	imports: [],

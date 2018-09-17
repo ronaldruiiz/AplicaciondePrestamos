@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
-import { NavController} from 'ionic-angular';
+import {ModalController, NavController} from 'ionic-angular';
 import {InformationCarPage} from "../information-car/information-car";
 import {StatusBar} from "@ionic-native/status-bar";
 import {CarsProvider} from "../../providers/cars/cars";
+import {SearchPricePage} from "../search-price/search-price";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  listcars = [];
-  estado = "usado"
+  listcars:any[] = [];
+  estado = "usado";
+  precioCar:any ;
 
-  constructor(public navCtrl: NavController,private cars:CarsProvider,private statusbar:StatusBar) {
+  constructor(public navCtrl: NavController,private cars:CarsProvider,
+              private statusbar:StatusBar,private modalCtrl: ModalController) {
     this.initializeList();
     this.statusbar.backgroundColorByHexString("#00ADFF");
   }
@@ -58,7 +61,21 @@ export class HomePage {
   }
 
   opensearchprice() {
+    let modal: any = this.modalCtrl.create(SearchPricePage);
+
+    modal.onDidDismiss(precio => {
+        this.precioCar = precio;
+        console.log(this.precioCar);
+        this.searchDinner(this.precioCar);
+    });
+    modal.present();
+  }
+
+  calculatedAleman() {
 
   }
 
+  private searchDinner(price:any) {
+    this.cars.getCarPrice(price).subscribe((data)=>this.listcars=data);
+  }
 }

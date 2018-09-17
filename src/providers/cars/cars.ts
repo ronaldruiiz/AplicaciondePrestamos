@@ -36,4 +36,9 @@ export class CarsProvider {
     return this.http.get(url+query);
   }
 
+  public getCarPrice(price) {
+    let urlId = "sites/MEC/search?q=&category=MEC1744&price=*-"+price;
+    return this.getQuery(urlId).pipe(map((item: any)=>item.results));;
+  }
+
 }

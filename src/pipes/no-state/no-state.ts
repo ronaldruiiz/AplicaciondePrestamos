@@ -15,9 +15,11 @@ export class NoStatePipe implements PipeTransform {
   transform(state: string):string {
 
     if(state == "not_specified") {
-      return "no state";
+      return "sin estado";
+    } else if(state == "used"){
+      return "usado";
     } else {
-      return state;
+      return "nuevo"
     }
   }
 }

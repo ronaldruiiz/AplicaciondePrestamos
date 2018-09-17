@@ -15,20 +15,33 @@
         <ion-slide *ngFor="let image of car.pictures">
           <img id="imagen" [src]="image.url"/>
         </ion-slide>
-
       </ion-slides>
       <ion-card-content>
         <ion-card-title>
           {{car.title}}
         </ion-card-title>
-        <ion-list>
-          <ion-item>
-            {{car.attributes[0].value_name}}
-          </ion-item>
-        </ion-list>
       </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-card-title text-center>
+          Informacion
+        </ion-card-title>
+      </ion-card-content>
+    <ion-grid >
+      <ion-row *ngFor="let atributes of car.attributes">
+        <ion-col  col-12>
+          <p><strong>{{atributes.name}}:</strong> {{atributes.value_name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     </ion-card>
 
   </div>
+
+  <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="call"></ion-icon></button>
+  </ion-fab>
+
 
 </ion-content>

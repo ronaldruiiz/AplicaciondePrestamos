@@ -1,0 +1,47 @@
+<ion-header no-border>
+
+  <ion-navbar color="primary">
+    <ion-title text-center>Busqueda por precio</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="md-close-circle" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div text-center col-11>
+    <ion-item>
+      <ion-label color="primary">Cantidad:</ion-label>
+      <ion-input [(ngModel)]="user.cantidad" type="number" ></ion-input>
+    </ion-item>
+  <ion-item>
+    <ion-label color="primary">Ingresos:</ion-label>
+    <ion-input [(ngModel)]="user.ingresos" type="number" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary">Gastos:</ion-label>
+    <ion-input [(ngModel)]="user.gastos" type="number" ></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Anios del prestamo</ion-label>
+    <ion-select [(ngModel)]="user.anioPrestamo" interface="action-sheet">
+      <ion-option *ngFor="let i of anios" [value]="i">{{i}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Metodo de pago</ion-label>
+    <ion-select [(ngModel)]="user.metodo" interface="action-sheet">
+      <ion-option value="aleman" >Aleman</ion-option>
+      <ion-option value="frances">Frances</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <button ion-button block margin (click)="indebtedness()">Buscar</button>
+  </div>
+</ion-content>

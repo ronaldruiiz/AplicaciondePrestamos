@@ -11,13 +11,15 @@ import { CarsProvider } from '../providers/cars/cars';
 import {CardviewCarComponent} from "../components/cardview-car/cardview-car";
 import {PipesModule} from "../pipes/pipes.module";
 import {HttpClientModule} from "@angular/common/http";
-
+import {SearchPricePage} from "../pages/search-price/search-price";
+import { OperationCreditsProvider } from '../providers/operation-credits/operation-credits';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     InformationCarPage,
-    CardviewCarComponent
+    CardviewCarComponent,
+    SearchPricePage
   ],
   imports: [
     BrowserModule,
@@ -29,13 +31,15 @@ import {HttpClientModule} from "@angular/common/http";
   entryComponents: [
     MyApp,
     HomePage,
-    InformationCarPage
+    InformationCarPage,
+    SearchPricePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CarsProvider
+    CarsProvider,
+    OperationCreditsProvider
   ]
 })
 export class AppModule {}
